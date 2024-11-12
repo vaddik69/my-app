@@ -1,0 +1,15 @@
+.back-header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: url('../images/signinform-background.jpg');
+    background-position: center;
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    border: 1px solid black;
+    background: silver;
+}
