@@ -8,10 +8,10 @@ const AnonymousRoute = () => {
 
     if (token) {
         if (role === UserRole.roles.MLO) {
-            return <Navigate to={RoutesConfig.routes.DASHBOARD} />
+            return <Navigate to={RoutesConfig.routes.DASHBOARD} replace />
         }
         if (role === UserRole.roles.ADMIN) {
-            return <Navigate to={RoutesConfig.routes.ADMIN_DASHBOARD} />
+            return <Navigate to={RoutesConfig.routes.ADMIN_DASHBOARD} replace />
         }
     } else {
         return <Outlet />

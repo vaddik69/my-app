@@ -22,15 +22,15 @@ class Token {
     }
 
     static getTokens = () => {
-        return { ...this.#tokens }
+        return this.#tokens
     }
 
     static getAccessToken = () => {
-        return { ...this.#tokens.access_token }
+        return this.#tokens.access_token
     }
 
     static getRefresfToken = () => {
-        return { ...this.#tokens.refresh_token }
+        return this.#tokens.refresh_token
     }
 }
 export { Token }

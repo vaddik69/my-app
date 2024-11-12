@@ -7,15 +7,17 @@ import { UserRole } from "../entity/userRoles"
 
 class AuthenticateInteractor {
     static authenticate = async (email, password, role) => {
-        const userCredential = new UserCredential()
-        userCredential.setUserCredential(email, password, role)
+        UserCredential.setUserCredential(email, password, role)
+        // console.log('credential', UserCredential.getUserCredential())
 
-        const error = await AuthenticationGateway.authenticationSignIn(userCredential)
+        const error = await AuthenticationGateway.authenticationSignIn()
         if (!error) {
             AuthenticationTokenGateway.setToken(Token.tokenKeys.ACCESS_TOKEN, Token.getAccessToken())
             AuthenticationTokenGateway.setToken(Token.tokenKeys.REFRESH_TOKEN, Token.getRefresfToken())
+            // console.log(localStorage.getItem('access_token'))
 
             AuthenticationRoleGateway.setRole(UserRole.roles.USER_ROLE, role)
+            // console.log(localStorage.getItem('userRole'))
         } else {
             return error
         }

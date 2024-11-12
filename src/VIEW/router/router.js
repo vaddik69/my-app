@@ -11,15 +11,15 @@ const AppRouter = () => {
     return (
         <Router>
             <Routes>
-                {/* <Route element={ <AnonymousRoute /> }> */}
+                <Route element={ <AnonymousRoute /> }>
                     <Route path={ RoutesConfig.routes.SIGNIN } element={ <SignIn /> }/>
                     <Route path={ RoutesConfig.routes.ADMIN_SIGNIN } element={ <AdminSignIn /> } />
-                {/* </Route> */}
+                </Route>
 
-                {/* <Route element={ <AuthenticationRoute /> }> */}
+                <Route element={ <AuthenticationRoute /> }>
                     <Route path={ RoutesConfig.routes.DASHBOARD } element={ <Dashboard /> } />
                     <Route path={ RoutesConfig.routes.ADMIN_DASHBOARD } element={ <AdminDashbaord /> } />
-                {/* </Route> */}
+                </Route>
 
                 <Route path='*' element={ <Navigate to={ RoutesConfig.routes.SIGNIN } /> } />
             </Routes>

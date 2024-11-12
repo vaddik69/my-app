@@ -59,10 +59,18 @@
     font-size: 16px;
     font-weight: 700;
     color: rgb(46, 46, 46);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.signin-button:active {
-    cursor: pointer;
+.signin-button:disabled {
+    cursor: not-allowed;
+    background-color: gray;
+}
+
+.signin-button:hover:enabled {
+    transition: background-color 0.3s ease;
+    background-color: skyblue;
 }
 
 .box-link {

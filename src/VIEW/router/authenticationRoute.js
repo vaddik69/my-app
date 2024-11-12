@@ -8,10 +8,10 @@ const AuthenticationRoute = () => {
 
     if (!token) {
         if (role === UserRole.roles.MLO) {
-            return <Navigate to={RoutesConfig.routes.SIGNIN} />
+            return <Navigate to={RoutesConfig.routes.SIGNIN} replace />
         }
         if (role === UserRole.roles.ADMIN) {
-            return <Navigate to={RoutesConfig.routes.ADMIN_SIGNIN} />
+            return <Navigate to={RoutesConfig.routes.ADMIN_SIGNIN} replace />
         }
     } else {
         return <Outlet />

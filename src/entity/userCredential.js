@@ -1,15 +1,15 @@
 class UserCredential {
-    #userCredential = {
+    static #userCredential = {
         email: '',
         password: '',
         role: '',
     }
 
-    setUserCredential = (email, password, role) => {
+    static setUserCredential = (email, password, role) => {
         this.#userCredential = { email, password, role }
     }
 
-    getUserCredential = () => {
+    static getUserCredential = () => {
         return { ...this.#userCredential }
     }
 }
