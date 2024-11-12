@@ -10,7 +10,7 @@ const SignInForm = ({ linkPath, userRole, onUserSigningIn, errorKey }) => {
     const [error, setError] = useState(Error.getError());
 
     useEffect(() => {
-        setError(Error.getError())
+        setError(errorKey)
     }, [errorKey])
 
     const handleSignInSubmit = (e) => {

@@ -6,7 +6,7 @@ class AuthenticationTokenGateway {
     }
 
     static getToken = (token) => {
-        BrowserStorage.getItem(token)
+        return BrowserStorage.getItem(token)
     }
 
     static removeToken = (token) => {

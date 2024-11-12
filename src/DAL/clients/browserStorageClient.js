@@ -4,7 +4,7 @@ class BrowserStorage {
     }
 
     static getItem(key) {
-        localStorage.getItem(key);
+        return localStorage.getItem(key);
     }
 
     static removeItem(key) {

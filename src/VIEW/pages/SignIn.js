@@ -11,12 +11,12 @@ const SignIn = () => {
     const navigate = useNavigate()
     const [errorKey, setErrorKey] = useState(Error.getError())
 
-    const handleUserSigningIn = (email, password) => {
+    const handleUserSigningIn = async (email, password) => {
         flushSync(() => {
             setErrorKey(Error.getError())
         })
 
-        const error = AuthenticateInteractor.authenticate(email, password, UserRole.roles.MLO);
+        const error = await AuthenticateInteractor.authenticate(email, password, UserRole.roles.MLO);
         if (!error) {
             navigate(RoutesConfig.routes.DASHBOARD)
         } else {

@@ -5,16 +5,16 @@ import { RoutesConfig } from "./routesConfig";
 
 const AnonymousRoute = () => {
     const { token, role } = AuthenticateInteractor.gettingParamsNavigation()
+    console.log (token, role)
 
-    if (token) {
-        if (role === UserRole.roles.MLO) {
-            return <Navigate to={RoutesConfig.routes.DASHBOARD} replace />
-        }
-        if (role === UserRole.roles.ADMIN) {
-            return <Navigate to={RoutesConfig.routes.ADMIN_DASHBOARD} replace />
-        }
-    } else {
-        return <Outlet />
+    if (role === UserRole.roles.MLO) {
+        return token ? <Navigate to={RoutesConfig.routes.DASHBOARD} replace /> : <Outlet />
+    } 
+    else if (role === UserRole.roles.ADMIN) {
+        return token ? <Navigate to={RoutesConfig.routes.ADMIN_DASHBOARD} replace /> : <Outlet />
     }
+
+    return <Outlet />
+
 }
 export default AnonymousRoute

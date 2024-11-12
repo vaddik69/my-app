@@ -6,7 +6,7 @@ class AuthenticationRoleGateway {
     }
 
     static getRole = (userRole) => {
-        BrowserStorage.getItem(userRole)
+        return BrowserStorage.getItem(userRole)
     }
 
     static removeRole = (userRole) => {

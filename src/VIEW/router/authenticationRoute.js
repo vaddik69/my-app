@@ -5,16 +5,15 @@ import { RoutesConfig } from "./routesConfig";
 
 const AuthenticationRoute = () => {
     const { token, role } = AuthenticateInteractor.gettingParamsNavigation()
-
-    if (!token) {
-        if (role === UserRole.roles.MLO) {
-            return <Navigate to={RoutesConfig.routes.SIGNIN} replace />
-        }
-        if (role === UserRole.roles.ADMIN) {
-            return <Navigate to={RoutesConfig.routes.ADMIN_SIGNIN} replace />
-        }
-    } else {
-        return <Outlet />
+    console.log (token, role)
+    
+    if (role === UserRole.roles.MLO) {
+        return token ? <Outlet /> : <Navigate to={RoutesConfig.routes.SIGNIN} />
+    } 
+    else if (role === UserRole.roles.ADMIN) {
+        return token ? <Outlet /> : <Navigate to={RoutesConfig.routes.ADMIN_SIGNIN} />
     }
+
+    return <Navigate to={RoutesConfig.routes.SIGNIN} />;
 }
 export default AuthenticationRoute

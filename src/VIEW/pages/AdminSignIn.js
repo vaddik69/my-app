@@ -11,12 +11,12 @@ const AdminSignIn = () => {
     const navigate = useNavigate()
     const [errorKey, setErrorKey] = useState(Error.getError())
 
-    const handleUserSigningIn = (email, password) => {
+    const handleUserSigningIn = async (email, password) => {
         flushSync(() => {
             setErrorKey(Error.getError())
         })
 
-        const error = AuthenticateInteractor.authenticate(email, password, UserRole.roles.ADMIN);
+        const error = await AuthenticateInteractor.authenticate(email, password, UserRole.roles.ADMIN);
         if (!error) {
             navigate(RoutesConfig.routes.ADMIN_DASHBOARD)
         } else {

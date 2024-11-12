@@ -7,11 +7,11 @@ class AuthenticationGateway {
     static authenticationSignIn = async () => {
         try {
             const response = await api.post('/login', UserCredential.getUserCredential())
-            // console.log('/login', UserCredential.getUserCredential())
-            // console.log(response.data)
+
             if (response.data && response.data.access_token) {
                 Token.setTokens(response.data.access_token, response.data.refresh_token)
             } else {
+                console.log('hello')
                 return Error.errorKeys.MISSING_TOKEN
             }
         } catch (error) {
