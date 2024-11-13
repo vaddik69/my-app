@@ -4,14 +4,13 @@ import { Error } from "../../../entity/errors"
 import { UserCredential } from "../../../entity/userCredential"
 
 class AuthenticationGateway {
-    static authenticationSignIn = async () => {
+    static authenticationSignIn = async (userCredential) => {
         try {
-            const response = await api.post('/login', UserCredential.getUserCredential())
+            const response = await api.post('/login', userCredential.getUserCredential())
 
             if (response.data && response.data.access_token) {
                 Token.setTokens(response.data.access_token, response.data.refresh_token)
             } else {
-                console.log('hello')
                 return Error.errorKeys.MISSING_TOKEN
             }
         } catch (error) {

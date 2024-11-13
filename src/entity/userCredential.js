@@ -1,16 +1,39 @@
 class UserCredential {
-    static #userCredential = {
-        email: '',
-        password: '',
-        role: '',
+    static #credentials = [];
+
+    constructor(email = '', password = '', role = '') {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+
+        UserCredential.#credentials.push(this);
     }
 
-    static setUserCredential = (email, password, role) => {
-        this.#userCredential = { email, password, role }
+    setUserCredential(email, password, role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
-    static getUserCredential = () => {
-        return { ...this.#userCredential }
+    getUserCredential() {
+        return {
+            email: this.email,
+            password: this.password,
+            role: this.role
+        };
+    }
+
+    static findByCredentials(email, password, role) {
+        return UserCredential.#credentials.find(
+            (instance) => 
+                instance.email === email && 
+                instance.password === password &&
+                instance.role === role
+        ) || null;
+    }
+
+    static getAllCredentials() {
+        return UserCredential.#credentials;
     }
 }
 export { UserCredential }

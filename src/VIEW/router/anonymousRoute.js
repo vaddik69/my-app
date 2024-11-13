@@ -5,7 +5,6 @@ import { RoutesConfig } from "./routesConfig";
 
 const AnonymousRoute = () => {
     const { token, role } = AuthenticateInteractor.gettingParamsNavigation()
-    console.log (token, role)
 
     if (role === UserRole.roles.MLO) {
         return token ? <Navigate to={RoutesConfig.routes.DASHBOARD} replace /> : <Outlet />

@@ -5,7 +5,6 @@ import { RoutesConfig } from "./routesConfig";
 
 const AuthenticationRoute = () => {
     const { token, role } = AuthenticateInteractor.gettingParamsNavigation()
-    console.log (token, role)
     
     if (role === UserRole.roles.MLO) {
         return token ? <Outlet /> : <Navigate to={RoutesConfig.routes.SIGNIN} />
