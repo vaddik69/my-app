@@ -10,7 +10,7 @@
 .header {
     height: 70px;
     width: 100%;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     background: silver;
     display: flex;
     justify-content: space-between;
