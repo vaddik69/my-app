@@ -87,3 +87,12 @@
 .signin-link:hover {
     text-decoration: underline;
 }
+
+.error-msg {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.signin-error-block {
+    height: 80px;
+}

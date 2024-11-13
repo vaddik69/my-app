@@ -38,9 +38,10 @@ const SignInForm = ({ linkPath, userRole, onUserSigningIn, errorKey }) => {
         <div className='back-div'>
             <div className="wrapper">
                 <form onSubmit={handleSignInSubmit}>
-                    <h1>Sign In</h1>
-
-                    <p className='error-msg' style={{color: error.color}}>{error.text}</p>
+                    <div className='signin-error-block'>
+                        <h1>Sign In</h1>
+                        <p className='error-msg' style={{ color: error.color }}>{error.text}</p>
+                    </div>
 
                     <div className='input-box'>
                         <input
@@ -51,7 +52,7 @@ const SignInForm = ({ linkPath, userRole, onUserSigningIn, errorKey }) => {
                         />
                     </div>
                     <div className='input-box'>
-                    <input
+                        <input
                             type='password'
                             placeholder='Password'
                             value={password}
