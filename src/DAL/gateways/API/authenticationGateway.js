@@ -1,7 +1,6 @@
 import { Token } from "../../../entity/tokens"
 import api from "../../clients/HTTPClient"
 import { Error } from "../../../entity/errors"
-import { UserCredential } from "../../../entity/userCredential"
 
 class AuthenticationGateway {
     static authenticationSignIn = async (userCredential) => {

@@ -22,8 +22,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 50%;
-    transform: translate(-50%);
+    /* margin-left: 50%; */
+    /* transform: translate(-50%); */
 }
 
 .signout-button {
@@ -44,4 +44,90 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: white;
+}
+
+.menu-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.menu-button:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.menu {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    width: 220px;
+    padding: 25px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu::before,
+.menu::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 15px;
+    border: 10px solid transparent;
+}
+
+.menu::before {
+    top: -20px;
+    border-bottom: 10px solid black;
+}
+
+.menu::after {
+    top: -19px;
+    border-bottom: 10px solid whitesmoke;
+}
+
+.menu-list {
+    margin: 0;
+    width: 100%;
+    padding: 0;list-style-type: none;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.link-item {
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-item:nth-child(n + 2) {
+    margin-top: 15px;
+}
+
+.md-menu {
+    height: 100%;
+    width: 100%;
+    padding: 2px 2px;
 }

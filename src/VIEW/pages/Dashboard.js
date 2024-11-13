@@ -16,6 +16,8 @@ const Dashboard = () => {
         <Header 
             title={'Dashboard'}
             onUserSigningOut={handleUserSigningOut}
+            linkTitle={'Dashboard'}
+            linkPath={RoutesConfig.routes.DASHBOARD}
         />
     )
 }

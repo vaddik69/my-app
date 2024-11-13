@@ -16,6 +16,8 @@ const AdminDashboard = () => {
         <Header 
             title={'Admin Dashboard'}
             onUserSigningOut={handleUserSigningOut}
+            linkTitle={'Admin Dashboard'}
+            linkPath={RoutesConfig.routes.ADMIN_DASHBOARD}
         />
     )
 }
