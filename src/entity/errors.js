@@ -1,7 +1,7 @@
 class Error {
     static #emptyError = { text: '', color: '' };
 
-    static #Errors = {
+    static #errors = {
         emptyEmail: { text: 'Email is required', color: "#FFF" },
         emptyPassword: { text: 'Password is required', color: "#B60000" },
         incorrectEmail: { text: 'Incorrect email format', color: "#8C0000" },
@@ -10,11 +10,11 @@ class Error {
     };
 
     static errorKeys = {
-        EMPTY_EMAIL: this.#Errors.emptyEmail,
-        EMPTY_PASSWORD: this.#Errors.emptyPassword,
-        INCORRECT_EMAIL: this.#Errors.incorrectEmail,
-        NOT_AUTHENTICATED: this.#Errors.invalidAuthenticated,
-        MISSING_TOKEN: this.#Errors.missingToken,
+        EMPTY_EMAIL: this.#errors.emptyEmail,
+        EMPTY_PASSWORD: this.#errors.emptyPassword,
+        INCORRECT_EMAIL: this.#errors.incorrectEmail,
+        NOT_AUTHENTICATED: this.#errors.invalidAuthenticated,
+        MISSING_TOKEN: this.#errors.missingToken,
     };
 
     static getError = (key) => {
