@@ -6,7 +6,7 @@ class Error {
         emptyPassword: { text: 'Password is required', color: "#B60000" },
         incorrectEmail: { text: 'Incorrect email format', color: "#8C0000" },
         invalidAuthenticated: { text: 'Invalid email or password', color: "#550000" },
-        missingToken: { text: 'Token is missing', color: "#B60000" },
+        missingToken: { text: 'Invalid authentication', color: "#B60000" },
     };
 
     static errorKeys = {
