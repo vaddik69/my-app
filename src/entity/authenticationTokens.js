@@ -1,4 +1,4 @@
-class Token {
+class AuthenticationTokens {
     static #tokens = {
         access_token: '',
         refresh_token: '',
@@ -33,4 +33,4 @@ class Token {
         return this.#tokens.refresh_token
     }
 }
-export { Token }
+export { AuthenticationTokens }

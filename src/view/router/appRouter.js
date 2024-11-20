@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import AuthenticationRoute from './authenticationRoute'
+import AuthenticatedRoute from './authenticatedRoute'
 import AnonymousRoute from './anonymousRoute'
 import { RoutesConfig } from './routesConfig'
 import SignIn from '../pages/SignIn'
@@ -16,7 +16,7 @@ const AppRouter = () => {
                     <Route path={ RoutesConfig.routes.ADMIN_SIGNIN } element={ <AdminSignIn /> } />
                 </Route>
 
-                <Route element={ <AuthenticationRoute /> }>
+                <Route element={ <AuthenticatedRoute /> }>
                     <Route path={ RoutesConfig.routes.DASHBOARD } element={ <Dashboard /> } />
                     <Route path={ RoutesConfig.routes.ADMIN_DASHBOARD } element={ <AdminDashbaord /> } />
                 </Route>

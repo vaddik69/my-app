@@ -1,15 +1,21 @@
 import axios from 'axios';
+import { Errors } from '../../entity/errors'
 
-const api = axios.create({
-    baseURL: 'https://dev.api.valoaneducator.tv/v1/auth'
-});
+class HTTPClient {
+    static #api = axios.create({
+        baseURL: 'https://dev.api.valoaneducator.tv/v1'
+    });
 
-api.interceptors.response.use(
-    (response) => response,
-    (error) => {
-        if (error.response && error.response.status === 401) {
-            return Promise.reject(error);
+    static POST = async (path, data = {}, token = null) => {
+        try {
+            const headers = token ? { Authorization: `Bearer ${token}` } : {}
+
+            const response = await this.#api.post(path, data, { headers })
+            return response
+        } catch (error) {
+            console.error(error)
+            return Errors.errorKeys.NOT_AUTHENTICATED
         }
     }
-);
- export default api;
+}
+export { HTTPClient };

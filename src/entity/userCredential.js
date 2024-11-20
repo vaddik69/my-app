@@ -23,6 +23,10 @@ class UserCredential {
         };
     }
 
+    removeUserCredential() {
+        UserCredential.#credentials.splice(this)
+    }
+
     static findByCredentials(email, password, role) {
         return UserCredential.#credentials.find(
             (instance) => 

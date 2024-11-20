@@ -1,13 +1,13 @@
 import '../assets/css/SignInForm.css'
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
-import { Error } from '../../entity/errors'
+import { Errors } from '../../entity/errors'
 import { useEffect } from 'react'
 
 const SignInForm = ({ linkPath, userRole, onUserSigningIn, errorKey }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(Error.getError());
+    const [error, setError] = useState(Errors.getError());
 
     useEffect(() => {
         setError(errorKey)
@@ -19,15 +19,15 @@ const SignInForm = ({ linkPath, userRole, onUserSigningIn, errorKey }) => {
         const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!email) {
-            setError(Error.getError(Error.errorKeys.EMPTY_EMAIL));
+            setError(Errors.getError(Errors.errorKeys.EMPTY_EMAIL));
             return;
         }
         if (!password) {
-            setError(Error.getError(Error.errorKeys.EMPTY_PASSWORD));
+            setError(Errors.getError(Errors.errorKeys.EMPTY_PASSWORD));
             return;
         }
         if (!EMAIL_REGEXP.test(email)) {
-            setError(Error.getError(Error.errorKeys.INCORRECT_EMAIL));
+            setError(Errors.getError(Errors.errorKeys.INCORRECT_EMAIL));
             return;
         }
 

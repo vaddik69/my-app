@@ -1,4 +1,4 @@
-class Error {
+class Errors {
     static #emptyError = { text: '', color: '' };
 
     static #errors = {
@@ -22,4 +22,4 @@ class Error {
         return { text: errorData.text, color: errorData.color };
     };
 }
-export { Error }
+export { Errors }
