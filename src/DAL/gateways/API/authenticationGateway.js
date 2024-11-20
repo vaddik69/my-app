@@ -3,7 +3,7 @@ import { PathsURL } from "../../../entity/pathsURL"
 import { HTTPClient } from '../../clients/HTTPClient'
 
 class AuthenticationGateway {
-    static signIn = async (userCredential = {}) => {
+    static signIn = async (userCredential) => {
         const response = await HTTPClient.POST(PathsURL.paths.auth.login, userCredential)
 
         if (response.data && response.data.access_token) {

@@ -24,7 +24,10 @@ class UserCredential {
     }
 
     removeUserCredential() {
-        UserCredential.#credentials.splice(this)
+        const index = UserCredential.#credentials.indexOf(this)
+        if (index !== -1) {
+            UserCredential.#credentials.splice(index, 1)
+        }
     }
 
     static findByCredentials(email, password, role) {
