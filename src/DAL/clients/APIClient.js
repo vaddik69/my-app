@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { Errors } from '../../entity/errors'
 
-class HTTPClient {
-    static #api = axios.create({
-        baseURL: 'https://dev.api.valoaneducator.tv/v1'
-    });
+class APIClient {
+    static #api = axios.create({});
 
     static POST = async (path, data = {}, token = null) => {
         try {
@@ -18,4 +16,4 @@ class HTTPClient {
         }
     }
 }
-export { HTTPClient };
+export { APIClient as HTTPClient };

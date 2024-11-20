@@ -1,10 +1,13 @@
 import { AuthenticationTokens } from "../../../entity/authenticationTokens"
-import { URLPaths } from "../../../entity/URLPaths"
-import { HTTPClient } from '../../clients/HTTPClient'
+import { HTTPClient } from '../../clients/APIClient'
+import { BaseGateway } from "./baseGateway"
 
 class AuthenticationGateway {
+    static #endpointFamilyURL = BaseGateway.getBaseURL() + '/auth'
+
     static signIn = async (userCredential) => {
-        const response = await HTTPClient.POST(URLPaths.paths.auth.login, userCredential)
+        const loginURL = this.#endpointFamilyURL + '/login'
+        const response = await HTTPClient.POST(loginURL, userCredential)
 
         if (response.data && response.data.access_token) {
             AuthenticationTokens.setTokens(response.data.access_token, response.data.refresh_token)
@@ -14,7 +17,8 @@ class AuthenticationGateway {
     }
 
     static signOut = async (token) => {
-        HTTPClient.POST(URLPaths.paths.auth.logout, {}, token)
+        const logoutURL = this.#endpointFamilyURL + '/logout'
+        HTTPClient.POST(logoutURL, {}, token)
     }
 }
 export { AuthenticationGateway }
