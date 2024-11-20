@@ -1,4 +1,4 @@
-class PathsURL {
+class URLPaths {
     static paths = {
         auth: {
             login: '/auth/login',
@@ -6,4 +6,4 @@ class PathsURL {
         }
     }
 }
-export { PathsURL }
+export { URLPaths }
